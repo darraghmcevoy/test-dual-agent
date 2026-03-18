@@ -161,6 +161,16 @@
   }
 }
 
+#footer-note {
+  border-top: 1px solid var(--border);
+  padding: 24px 20px;
+
+  p {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+}
+
 .ticks {
   position: relative;
   width: 100%;
