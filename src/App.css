@@ -171,6 +171,15 @@
   }
 }
 
+#footer {
+  border-top: 1px solid var(--border);
+  padding: 16px 20px 24px;
+
+  p {
+    margin: 0;
+  }
+}
+
 .ticks {
   position: relative;
   width: 100%;
