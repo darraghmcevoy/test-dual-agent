@@ -1,0 +1,29 @@
+.claude/
+.codex/
+
+# Local environment and secrets
+.env
+.env.*
+*.local
+*.secret
+*.secrets
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+*.bak
+.DS_Store
+Thumbs.db
+
+# Dependency and build outputs for future app repos using this template
+node_modules/
+dist/
+build/
+coverage/
+.cache/
+.turbo/
+.next/
+
+# Editor/runtime artifacts
+*.tsbuildinfo
