@@ -1,6 +1,6 @@
 function Footer() {
   return (
-    <footer>
+    <footer id="footer">
       <p>Built with Claude Code and Codex on separate branches.</p>
     </footer>
   )

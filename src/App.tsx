@@ -116,13 +116,10 @@ function App() {
       </section>
 
       <div className="ticks"></div>
-      <section id="footer-note">
+      <div id="footer-note" role="note" aria-label="Workflow note">
         <FooterNote />
-      </section>
-      <section id="footer">
-        <Footer />
-      </section>
-      <section id="spacer"></section>
+      </div>
+      <Footer />
     </>
   )
 }
