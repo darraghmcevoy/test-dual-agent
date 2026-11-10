@@ -7,6 +7,18 @@ import FooterNote from './components/FooterNote'
 import Header from './components/Header'
 import './App.css'
 
+const DOC_LINKS = [
+  { href: 'https://vite.dev/', icon: viteLogo, label: 'Explore Vite', isImage: true },
+  { href: 'https://react.dev/', icon: reactLogo, label: 'Learn more', isImage: true },
+] as const
+
+const SOCIAL_LINKS = [
+  { href: 'https://github.com/vitejs/vite', iconId: 'github-icon', label: 'GitHub' },
+  { href: 'https://chat.vite.dev/', iconId: 'discord-icon', label: 'Discord' },
+  { href: 'https://x.com/vite_js', iconId: 'x-icon', label: 'X.com' },
+  { href: 'https://bsky.app/profile/vite.dev', iconId: 'bluesky-icon', label: 'Bluesky' },
+] as const
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -27,6 +39,7 @@ function App() {
         <button
           className="counter"
           onClick={() => setCount((count) => count + 1)}
+          aria-label={`Increment counter, current count is ${count}`}
         >
           Count is {count}
         </button>
@@ -42,18 +55,14 @@ function App() {
           <h2>Documentation</h2>
           <p>Your questions, answered</p>
           <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
+            {DOC_LINKS.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  <img className="logo" src={link.icon} alt="" />
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div id="social">
@@ -63,54 +72,20 @@ function App() {
           <h2>Connect with us</h2>
           <p>Join the Vite community</p>
           <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
+            {SOCIAL_LINKS.map((link) => (
+              <li key={link.href}>
+                <a href={link.href} target="_blank" rel="noopener noreferrer">
+                  <svg
+                    className="button-icon"
+                    role="presentation"
+                    aria-hidden="true"
+                  >
+                    <use href={`/icons.svg#${link.iconId}`}></use>
+                  </svg>
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </section>

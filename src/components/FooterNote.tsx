@@ -1,9 +1,10 @@
-function FooterNote() {
+type FooterNoteProps = {
+  text?: string
+}
+
+function FooterNote({ text = 'Scenario 2: one agent edits while another reviews from a separate worktree.' }: FooterNoteProps) {
   return (
-    <p>
-      Scenario 2: one agent edits while another reviews from a separate
-      worktree.
-    </p>
+    <p>{text}</p>
   )
 }
 

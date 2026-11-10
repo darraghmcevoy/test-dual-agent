@@ -1,7 +1,11 @@
-function Footer() {
+type FooterProps = {
+  text?: string
+}
+
+function Footer({ text = 'Built with Claude Code and Codex on separate branches.' }: FooterProps) {
   return (
     <footer id="footer">
-      <p>Built with Claude Code and Codex on separate branches.</p>
+      <p>{text}</p>
     </footer>
   )
 }
